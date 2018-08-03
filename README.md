@@ -19,5 +19,5 @@ yarn run serve
 * Bing
 * OpenGIS WMS (WIP)
 
-![]()
-![]()
+![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/OSMandMB.png)
+![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/BING.png)
