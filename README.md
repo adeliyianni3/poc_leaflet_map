@@ -10,7 +10,7 @@ yarn install
 yarn run serve
 ```
 
-### Didplays 3 Leaflet Maps Compatible with Vue
+### Displays 3 Leaflet Maps Compatible with Vue
 * OpenStreetMaps with MapBox
 * Bing
 * OpenGIS WMS (WIP)
