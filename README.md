@@ -10,12 +10,7 @@ yarn install
 yarn run serve
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
+### Didplays 3 Leaflet Maps Compatible with Vue
+* OpenStreetMaps with MapBox
+* Bing
+* OpenGIS WMS (WIP)
