@@ -35,6 +35,20 @@
       :max-zoom="maxZoom"
     >
     </l-map>
+    <div style="height: 10%; overflow: auto;">
+      <h3>OpenGIS WMS</h3>
+    </div>
+    <l-map
+      class="map"
+      style="height: 45%"
+      :zoom.sync="zoom"
+      :center="center"
+      :options="option1"
+      :bounds="bounds"
+      :min-zoom="minZoom"
+      :max-zoom="maxZoom"
+    >
+    </l-map>
   </div>
 </template>
 <style>

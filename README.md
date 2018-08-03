@@ -1,21 +1,5 @@
-# poc_leaflet
+# poc_leaflet_map
+https://github.com/SAR-Junior-Design/API/issues/16
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
+## OpenStreetMap
+* Satellite Imagery not offered by OSM, may need additional layers/plugin, so at the moment I am swapping OSM for MapBox
