@@ -20,6 +20,7 @@ yarn run serve
 * OpenGIS WMS
 * Esri
 * ~~MapQuest~~ (STRUGGLE TO GET THIS TO WORK IN VUE)
+* Yandex (WIP)
 
 ### Examples
 ![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/OSMandMB.png)
