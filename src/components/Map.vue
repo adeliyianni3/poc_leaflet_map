@@ -36,9 +36,25 @@
     >
     </l-map>
     <div style="height: 10%; overflow: auto;">
-      <h3>OpenGIS WMS</h3>
+      <h3>WMS</h3>
     </div>
     <l-map
+      ref="map2"
+      class="map"
+      style="height: 45%"
+      :zoom.sync="zoom"
+      :center="center"
+      :options="option1"
+      :bounds="bounds"
+      :min-zoom="minZoom"
+      :max-zoom="maxZoom"
+    >
+    </l-map>
+    <div style="height: 10%; overflow: auto;">
+      <h3>Esri</h3>
+    </div>
+    <l-map
+      ref="map3"
       class="map"
       style="height: 45%"
       :zoom.sync="zoom"
@@ -57,10 +73,12 @@
     width: 400px !important;
   }
 </style>
+
 <script>
 import L from 'leaflet'
 import { LMap, LTileLayer } from 'vue2-leaflet';
 import 'leaflet-bing-layer';
+
 var corner1 = L.latLng(40.712, -74.227);
 var corner2 = L.latLng(40.774, -74.125);
 export default {
@@ -72,11 +90,13 @@ export default {
   mounted () {
     this.$nextTick(() => {
       L.tileLayer.bing('AvVCK0xHGmL0Jkv6sVOo1PZv1gwYVfd6roQmfNOlhmmrwLt3xtw4tVaVvxri-wTb').addTo(this.$refs.map.mapObject);
+      L.tileLayer.wms('https://demo.boundlessgeo.com/geoserver/ows?', { layers: 'nasa:bluemarble', attribution: 'NASA' }).addTo(this.$refs.map2.mapObject);
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'}).addTo(this.$refs.map3.mapObject);
     })
   },
   data () {
     return {
-      zoom: 13,
+      zoom: 1,
       center: { lat: 51.505, lng: -0.09 },
       bounds: L.latLngBounds(corner1, corner2),
       minZoom: 1,

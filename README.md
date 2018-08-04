@@ -9,7 +9,7 @@ https://github.com/SAR-Junior-Design/API/issues/16
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Run
 ```
 yarn run serve
 ```
@@ -17,7 +17,9 @@ yarn run serve
 ### Displays 3 Leaflet Maps Compatible with Vue
 * OpenStreetMaps with MapBox
 * Bing
-* OpenGIS WMS (WIP)
+* OpenGIS WMS
+* Esri
+* ~~MapQuest~~ (STRUGGLE TO GET THIS TO WORK IN VUE)
 
 ![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/OSMandMB.png)
 ![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/BING.png)
