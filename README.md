@@ -21,5 +21,8 @@ yarn run serve
 * Esri
 * ~~MapQuest~~ (STRUGGLE TO GET THIS TO WORK IN VUE)
 
+### Examples
 ![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/OSMandMB.png)
 ![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/BING.png)
+![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/WMS.png)
+![](https://github.com/adeliyianni3/poc_leaflet_map/blob/master/images/ESRI.png)
