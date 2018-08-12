@@ -27,6 +27,7 @@
           color.default= "#ff0000"
           fillColor.default= "#ff0000"
           v-on:drag="dragPolygon($event)"
+          v-on:click="deletePolygon(polygon)"
         >
         </l-polygon>
         <l-circle-marker
@@ -236,8 +237,7 @@ export default {
                 [33.77917854311787, -84.39906426576435],
                 [33.77861226955116, -84.4012854091463],
                 [33.77757334846985, -84.40013728189089],
-                [33.77853646886839, -84.39833461479827],
-                [33.77917854311787, -84.39906426576435]
+                [33.77853646886839, -84.39833461479827]
               ]
             }
           }
@@ -264,6 +264,10 @@ export default {
     },
     dragPolygon(e) {
       //e.stopPropagation();
+    },
+    deletePolygon(poly) {
+      this.polygon = [];
+      this.points = [];
     }
   }
 }
