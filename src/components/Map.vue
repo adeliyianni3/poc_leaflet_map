@@ -2,6 +2,7 @@
   <span>
     <div class="overlay">
       <l-map
+        id="map"
         ref="map"
         class="map"
         style="height: 45%"
@@ -75,7 +76,7 @@
         color="yellow"
         v-on:click="editEnabled"
       >
-        <v-icon>pan</v-icon>
+        <v-icon>pan_tool</v-icon>
       </v-btn>
       <v-btn
         fab
@@ -111,6 +112,9 @@
   path {
     stroke: #ff0000;
   }
+  .crosshair {
+    cursor: crosshair !important;
+  }
 </style>
 
 <script>
@@ -130,10 +134,11 @@ export default {
   data () {
     return {
       closePoly: false,
+      drawOn: false,
       map: null,
       points: [],
       polygon: [],
-      current_icon: "pan",
+      current_icon: "pan_tool",
       direction: 'top',
       fab: false,
       fling: false,
@@ -158,27 +163,43 @@ export default {
   },
   methods: {
     drawEnabled () {
-      this.current_icon='edit';
+      if (!this.drawOn) {
+        document.getElementById("map").className += " crosshair";
+        this.current_icon='edit';
+        this.drawOn = true;
+      }
     },
     drawDisabled () {
-      this.current_icon='delete';
+      if (this.drawOn) {
+        document.getElementById("map").className = document.getElementById("map").className.replace(' crosshair','');
+        this.current_icon='delete';
+        this.drawOn = false;
+      }
     },
     editEnabled () {
+      if (this.drawOn) {
+        document.getElementById("map").className = document.getElementById("map").className.replace(' crosshair','');
+        this.drawOn = false;
+      }
     },
     getLatLon (e) {
-      if (this.closePoly) {
-        this.polygon = this.points;
-        this.points = [];
-        this.closePoly = false;
-      } else {
-        var latLng = [e.latlng.lat, e.latlng.lng];
-        this.points.push(latLng);
+      if (this.drawOn) {
+        if (this.closePoly) {
+          this.polygon = this.points;
+          this.points = [];
+          this.closePoly = false;
+        } else {
+          var latLng = [e.latlng.lat, e.latlng.lng];
+          this.points.push(latLng);
+        }
       }
     },
     closePolygon (circle, e) {
-      if (circle == this.points[0]) {
-        this.points.push(circle);
-        this.closePoly = true;
+      if (this.drawOn) {
+        if (circle == this.points[0]) {
+          this.points.push(circle);
+          this.closePoly = true;
+        }
       }
     },
     dragPolygon(e) {
