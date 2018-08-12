@@ -36,7 +36,7 @@
           :latLng="point"
           v-on:click="clickOnVertex(point, $event)"
           color.default= "#ff0000"
-          v-on:drag=""
+          v-on:mousedown="dragCircle(index, $event)"
         >
         </l-circle-marker>
       </l-map>
@@ -265,9 +265,16 @@ export default {
     dragPolygon(e) {
       //e.stopPropagation();
     },
+    dragCircle(circle, e) {
+      var that = this;
+      that.map.dragging.disable();
+      console.log(circle);
+    },
     deletePolygon(poly) {
-      this.polygon = [];
-      this.points = [];
+      if (this.deleteOn) {
+        this.polygon = [];
+        this.points = [];
+      }
     }
   }
 }
