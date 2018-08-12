@@ -4254,6 +4254,10 @@ leaflet-bing-layer@^3.3.0:
     fetch-jsonp "^1.0.0"
     leaflet "^1.0.0-beta.2"
 
+leaflet-draw@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/leaflet-draw/-/leaflet-draw-1.0.2.tgz#212d1d958a53b849bec19a2135d39c13ed012559"
+
 leaflet-plugins@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/leaflet-plugins/-/leaflet-plugins-3.0.3.tgz#7c727ac79a37636b245dd1adc64e10c61b425864"
@@ -4459,6 +4463,10 @@ mapbox-gl@^0.47.0:
     through2 "^2.0.3"
     tinyqueue "^1.1.0"
     vt-pbf "^3.0.1"
+
+material-design-icons@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
 
 math-random@^1.0.1:
   version "1.0.1"
@@ -7185,6 +7193,10 @@ vue2-leaflet@^1.0.2:
 vue@^2.5.16:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
+
+vuetify@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.1.9.tgz#3eb497cc89d318ee6865bbebd081f5830f83f8ba"
 
 watchpack@^1.5.0:
   version "1.6.0"
