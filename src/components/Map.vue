@@ -30,10 +30,10 @@
         >
         </l-polygon>
         <l-circle-marker
-          v-for="point in points"
-          :key="point[0]"
+          v-for="(point, index) in points"
+          :key="index"
           :latLng="point"
-          v-on:click="closePolygon(point, $event)"
+          v-on:click="clickOnVertex(point, $event)"
           color.default= "#ff0000"
           v-on:drag=""
         >
@@ -83,7 +83,7 @@
         dark
         small
         color="red"
-        v-on:click="drawDisabled"
+        v-on:click="deleteEnabled"
       >
         <v-icon>delete</v-icon>
       </v-btn>
@@ -135,6 +135,8 @@ export default {
     return {
       closePoly: false,
       drawOn: false,
+      editOn: true,
+      deleteOn: false,
       map: null,
       points: [],
       polygon: [],
@@ -167,19 +169,30 @@ export default {
         document.getElementById("map").className += " crosshair";
         this.current_icon='edit';
         this.drawOn = true;
+        this.editOn = false;
+        this.deleteOn = false;
       }
     },
-    drawDisabled () {
-      if (this.drawOn) {
+    deleteEnabled () {
+      if (!this.deleteOn) {
         document.getElementById("map").className = document.getElementById("map").className.replace(' crosshair','');
-        this.current_icon='delete';
         this.drawOn = false;
+        this.editOn = false;
+        this.deleteOn = true;
       }
+      if (this.points.length!=0) {
+        this.points = this.polygon;
+      }
+      this.current_icon='delete';
     },
     editEnabled () {
-      if (this.drawOn) {
+      if (!this.editOn) {
+        this.current_icon= "pan_tool"
         document.getElementById("map").className = document.getElementById("map").className.replace(' crosshair','');
         this.drawOn = false;
+        this.deleteOn = false;
+        this.editOn = true;
+        this.points = this.polygon;
       }
     },
     getLatLon (e) {
@@ -194,11 +207,23 @@ export default {
         }
       }
     },
-    closePolygon (circle, e) {
+    clickOnVertex (circle, e) {
+      console.log(this.deleteOn);
+      console.log(this.drawOn);
+      console.log(this.editOn);
       if (this.drawOn) {
         if (circle == this.points[0]) {
           this.points.push(circle);
           this.closePoly = true;
+        }
+      } else if (this.deleteOn) {
+        var index = this.polygon.indexOf(circle);
+        if (index > -1) {
+          this.polygon.splice(index, 1);
+          index = this.polygon.indexOf(circle);
+          if (index > -1) {
+            this.polygon.splice(index, 1);
+          }
         }
       }
     },
