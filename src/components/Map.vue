@@ -87,6 +87,15 @@
       >
         <v-icon>delete</v-icon>
       </v-btn>
+      <v-btn
+        fab
+        dark
+        small
+        color="pink"
+        v-on:click="geoJsonToPolygon"
+      >
+        <v-icon>map</v-icon>
+      </v-btn>
     </v-speed-dial>
   </span>
 </template>
@@ -207,13 +216,36 @@ export default {
         } else {
           var latLng = [e.latlng.lat, e.latlng.lng];
           this.points.push(latLng);
+          console.log(latLng);
         }
       }
     },
+    geoJsonToPolygon () {
+      this.current_icon = "map";
+      this.deleteOn=false;
+      this.drawOn=false;
+      this.editOn=false;
+      var geoJson = {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [33.77917854311787, -84.39906426576435],
+                [33.77861226955116, -84.4012854091463],
+                [33.77757334846985, -84.40013728189089],
+                [33.77853646886839, -84.39833461479827],
+                [33.77917854311787, -84.39906426576435]
+              ]
+            }
+          }
+        ]
+      };
+      this.polygon = geoJson.features[0].geometry.coordinates;
+    },
     clickOnVertex (circle, e) {
-      console.log(this.deleteOn);
-      console.log(this.drawOn);
-      console.log(this.editOn);
       if (this.drawOn) {
         if (circle == this.points[0]) {
           this.points.push(circle);
