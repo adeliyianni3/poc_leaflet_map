@@ -266,9 +266,10 @@ export default {
       //e.stopPropagation();
     },
     dragCircle(circle, e) {
-      var that = this;
-      that.map.dragging.disable();
-      console.log(circle);
+      if (this.editOn) {
+        //this.map.dragging.disable();
+        console.log(circle);
+      }
     },
     deletePolygon(poly) {
       if (this.deleteOn) {
