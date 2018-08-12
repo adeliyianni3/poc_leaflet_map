@@ -171,6 +171,9 @@ export default {
         this.drawOn = true;
         this.editOn = false;
         this.deleteOn = false;
+        if (this.points.length!=0) {
+          this.points = [];
+        }
       }
     },
     deleteEnabled () {
@@ -180,7 +183,7 @@ export default {
         this.editOn = false;
         this.deleteOn = true;
       }
-      if (this.points.length!=0) {
+      if (this.points.length==0) {
         this.points = this.polygon;
       }
       this.current_icon='delete';
