@@ -37,6 +37,7 @@
           v-on:click="clickOnVertex(point, $event)"
           color.default= "#ff0000"
           v-on:mousedown="dragCircle(index, $event)"
+          draggable: true
         >
         </l-circle-marker>
       </l-map>
@@ -130,7 +131,7 @@
 <script>
 import { LMap, LTileLayer, LPolygon, LPolyline, LCircleMarker} from 'vue2-leaflet';
 import L from 'leaflet';
-import 'leaflet-draw';
+import 'leaflet-path-drag';
 
 export default {
   name: 'Map',
@@ -262,17 +263,11 @@ export default {
         }
       }
     },
-    dragPolygon(e) {
-      //e.stopPropagation();
-    },
-    dragCircle(circle, e) {
-      if (this.editOn) {
-        //this.map.dragging.disable();
-        console.log(circle);
-      }
-    },
+    dragPolygon(e) {},
+    dragCircle(circle, e) {},
     deletePolygon(poly) {
       if (this.deleteOn) {
+        console.log(poly);
         this.polygon = [];
         this.points = [];
       }

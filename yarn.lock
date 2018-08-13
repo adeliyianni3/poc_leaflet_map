@@ -4258,6 +4258,10 @@ leaflet-draw@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/leaflet-draw/-/leaflet-draw-1.0.2.tgz#212d1d958a53b849bec19a2135d39c13ed012559"
 
+leaflet-path-drag@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/leaflet-path-drag/-/leaflet-path-drag-1.1.0.tgz#586e464b51ee3b712e74b4a92dc10a259f0eb9ff"
+
 leaflet-plugins@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/leaflet-plugins/-/leaflet-plugins-3.0.3.tgz#7c727ac79a37636b245dd1adc64e10c61b425864"
